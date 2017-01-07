@@ -1,0 +1,8 @@
+# install application
+RUN mkdir -p /home/web/app/application && mkdir -p /home/web/app/requirements
+ADD ./app/application /home/web/app/application
+ADD ./app/requirements /home/web/app/requirements
+RUN chown -R web /home/web/app
+
+# install requirements
+RUN pip3 install -r /home/web/app/requirements/base.txt
