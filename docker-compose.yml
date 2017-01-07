@@ -1,0 +1,23 @@
+app:
+    build: .
+    ports:
+        - "8000:80"
+    volumes:
+        - "./application:/home/web/app/application"
+        - "./requirements:/home/web/app/requirements"
+    links:
+        - db
+    environment:
+        - "DJANGO_SETTINGS_MODULE=application.settings.app"
+        - "INSTALL_REQUIREMENT=True"
+        - "DB_HOST=db"
+        - "DB_PORT=5432"
+        - "DB_NAME=postgres"
+        - "DB_USER=postgres"
+        - "DB_PASSWORD=postgres"
+db:
+    image: postgres
+    environment:
+        - "POSTGRES_DB=postgres"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=postgres"
