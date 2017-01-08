@@ -16,7 +16,7 @@ app:
         - "DB_USER=postgres"
         - "DB_PASSWORD=postgres"
 db:
-    image: postgres
+    image: postgres:9.5
     environment:
         - "POSTGRES_DB=postgres"
         - "POSTGRES_USER=postgres"
